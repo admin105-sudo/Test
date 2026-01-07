@@ -5,13 +5,13 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/USERNAME/Test.git'
+                git 'https://github.com/admin105-sudo/Test.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t USERNAME/myweb:latest .'
+                sh 'docker build -t ahgbkjjgsfuyhjgnb/myweb:latest .'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'docker push USERNAME/myweb:latest'
+                sh 'docker push ahgbkjjgsfuyhjgnb/myweb:latest'
             }
         }
 
@@ -41,7 +41,7 @@ pipeline {
                       docker stop web || true
                       docker rm web || true
                       docker pull USERNAME/myweb:latest
-                      docker run -d -p 80:80 --name web USERNAME/myweb:latest
+                      docker run -d -p 80:80 --name web ahgbkjjgsfuyhjgnb/myweb:latest
                     EOF
                     '''
                 }
